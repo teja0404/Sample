@@ -1,0 +1,309 @@
+Match Phrase
+Title.raw
+
+In mappings type: Text will be analyzed
+IF mappings type: Keyword will not be analyzed
+
+work from home: Results are not from collections
+
+Corporate offices : Results are not from collections
+
+Indian Old Woman Farmers Working In Paddy Fields
+
+Home work
+
+Rainy Season: (Check scores obtained for different queries like uing script score and try to sort them)
+
+
+we are very good at finding the queries but sorting them in order matters!!!!
+
+we are using rating to produce custom score and again we are sorting them using rating????(sort using _score)
+
+Are we using (version_5) to give more preference to collections ??? and again we will loose our order if we sort according 
+ rating ;(
+
+Health and daily life
+
+I have no clue why this images are popping up(Chiranjeevi and soundarya)
+
+Match phrase!!!!???
+
+Health and daily life(we have a collection pf images on Health and hygiene)
+
+Work from home
+we are failing in showing the order of the images!!!! 
+
+
+Exact Matching : Work from home ,Home work
+
+we need to change the "SORT"
+
+Family spending time: We have exact query match 
+
+Zoom class teacher.
+
+children Bicycle stunt
+
+
+Cross Fiels should be used when parts of the query may present in 
+different fields (sub parts in a query like Name contains (first name and second name)Teja illa and we have fields like first name )
+
+Best query and match fields
+
+why we should use best fields than cross fields 
+
+lets take example of Brown fox: we are looking for brown fox in a single field like(title or tags but not in different ones)
+
+         But what happens with cross fields is its basic intention is single query should match in different fileds
+          
+          like name of person: Teja illa (Here teja will present in the field of first name and illa in second name)
+          one of the solution is joining both the fields into full name=First name+second name (But for that we need to change indexing)
+          so in that case cross fileds will be used in Quering time.
+
+
+here we were using both but we need to change the order (the second one is nothing but best fileds but best fields should be )
+
+Basic structure of both:
+      
+         query:Brown Fox
+   
+         match_phrase:
+
+         Best fields:
+                 (+Title:Brown +Title:Fox) | (+Tags:Brown +Tags:Fox)
+       
+         Cross fields:
+                  (+Title:Brown +Tags:Brown) | (+Title:Fox +Tags:Fox)
+   
+     
+
+Strict AND 
+   
+
+
+
+Add the data!!!
+
+Try field centric and next term centric and look for the results!!!
+
+again read book!!!!
+
+Indian couple sitting on white sofa
+
+
+    
+            
+Difference Between Analyzers: English and std,
+
+sprout of bottle gourd
+
+query:Cow Dung Cake(After that using normal std Analyzers both were same but using cow was taken more importance)
+       Indian couple sitting on sofa example(After some results Sofa was given more importance than Indian couples!!!.
+
+
+
+
+############### Best example of English Analyzer ###########
+
+
+
+GET picxy/_search
+{
+  "_source": ["title","id"],
+  "size": 60,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "multi_match": {
+            "query": "Indian couple sitting on white sofa",
+            "fields": ["title","description"],
+            "type": "best_fields",
+            "boost": 10
+          }
+        }
+      ],
+      "should": [
+        {
+          "multi_match": {
+            "query": "Indian couple sitting on white sofa",
+            "fields": ["title","description"],
+            "type": "most_fields"
+          }
+        }
+      ]
+    }
+  }
+  
+}
+
+
+
+
+add must class
+
+https://classroom.udacity.com/courses/ud187/lessons/a915f824-ce4a-4f5e-9897-a78ccbff313d/concepts/c96ea495-325e-42b3-b42f-de3ccb71af53
+
+https://classroom.udacity.com/courses/ud187
+
+
+Indian woman doing yoga (Tf indian=1* Idf=1/2  1*1/2=0.5 ) TF=1 idf=*1/2 0.5 
+
+Indian doing yoga Tf=1 idf=3 tf =1*1/3 0.33 
+
+woman doing yoga (0.33)
+
+
+Indian=0.5
+woman=0.5
+
+23280703883362
+
+yoga=0.3
+doing=0.3
+
+
+BM 2.5
+
+
+Indian=2 
+woman =2
+yoga=3
+doing=3
+
+Main Entrance Of Old Hindu Temple.
+
+[1,2,3]
+
+arr[-2]
+
+
+
+Indian Young women doing yoga
+Indian Young women doing yoga
+Indian Young women doing yoga
+Indian Young women doing yoga
+Indian Young women doing yoga
+Indian Young women doing yoga
+Women doing yoga at home
+Women doing yoga at home
+Women doing yoga at home
+Women doing yoga at home
+Women doing yoga at home
+Women doing yoga at home
+Morning workout
+Morning workout
+Total workout
+Morning workout,Morning jumping
+Morning workout
+Total workout
+Workout during lockdown
+workout
+Workout
+Workout
+Workout
+
+
+
+Phrases,Border,Categories,Improving search engine
+
+
+
+
+
+
+
+
+
+I ,Durga Vara Siva Teja (2017A3PS0570H) do hereby solemnly affirm that the reason for  high transctions
+
+  1)My father as an Employee during some extreme and rare conditions
+   transacts some amount of money on behalf of his working organization to organizations through  his bank account.
+
+  2)My father is not the owner and neither the receipt of the depict amount.
+       he is just a mediator between the sender and receiver.
+
+  I further wish to state that whatever is stated here in above is true and correct to best of my knowledge.
+
+
+
+
+
+
+
+
+
+   
+I ,Durga Vara Siva Teja (2017A3PS0570H) do hereby solemnly affirm that the reason for  high transctions
+
+  1) Due to some previous debts that we owe to our relatives,gold loan was 
+               taken to clear that amount.
+   
+  2) The noted high amount in the bank account was thereof.
+
+
+  I further wish to state that whatever is stated here in above is true and correct to best of my knowledge.
+
+  
+
+
+
+
+determining an identity of an unknown Internet-of-Things (IoT) device in a communication network
+
+receiving network traffic generated by the unknown IoT device
+
+extracting device network behavior from the generated network traffic
+
+determining the identity of the unknown IoT device from a list of known IoT devices by applying a selected machine learning based classifier
+
+
+
+network traffic ----> device network behaviour ----> Apply ML algorithm ----
+
+
+Clami 1:   
+ 
+         receiving network traffic generated by the unknown IoT device
+         extracting device network behavior 
+        
+        from the generated network traffic; and determining the identity of the unknown IoT device from a list of known IoT devices by applying a 
+        selected machine learning based classifier from a set of machine learning based classifiers to analyze the device network behaviour, 
+
+        each machine learning based classifier of the set is trained by a dataset including a plurality of features representing network behaviour of a 
+        respective known IoT device from the list and the known IoT device's identity;
+      
+        wherein the plurality of features being associated with the corresponding device network behaviour of the generated network traffic.
+
+
+claim 2:
+  
+      network traffic includes a number of communication sessions having respective 
+      unlabeled feature vectors representing the device network behaviour of the unknown IoT device 
+
+     
+      wherein each machine learning based classifier of the set includes a single session classifier associated with a respective 
+      known IoT device in the list and for outputting a probability; 
+
+      a classification threshold for comparing with the probability to determine 
+      if the session being analyzed is generated by a particular device in the known IoT device list; 
+      and a session sequence size defining the number of communication sessions to analyze.
+
+
+claim 3:
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
