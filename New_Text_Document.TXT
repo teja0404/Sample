@@ -107,38 +107,6 @@ query:Cow Dung Cake(After that using normal std Analyzers both were same but usi
 
 
 
-GET picxy/_search
-{
-  "_source": ["title","id"],
-  "size": 60,
-  "query": {
-    "bool": {
-      "must": [
-        {
-          "multi_match": {
-            "query": "Indian couple sitting on white sofa",
-            "fields": ["title","description"],
-            "type": "best_fields",
-            "boost": 10
-          }
-        }
-      ],
-      "should": [
-        {
-          "multi_match": {
-            "query": "Indian couple sitting on white sofa",
-            "fields": ["title","description"],
-            "type": "most_fields"
-          }
-        }
-      ]
-    }
-  }
-  
-}
-
-
-
 
 add must class
 
@@ -178,30 +146,6 @@ Main Entrance Of Old Hindu Temple.
 arr[-2]
 
 
-
-Indian Young women doing yoga
-Indian Young women doing yoga
-Indian Young women doing yoga
-Indian Young women doing yoga
-Indian Young women doing yoga
-Indian Young women doing yoga
-Women doing yoga at home
-Women doing yoga at home
-Women doing yoga at home
-Women doing yoga at home
-Women doing yoga at home
-Women doing yoga at home
-Morning workout
-Morning workout
-Total workout
-Morning workout,Morning jumping
-Morning workout
-Total workout
-Workout during lockdown
-workout
-Workout
-Workout
-Workout
 
 
 
